@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Get elements
     const themeToggle = document.getElementById('theme-toggle');
+    const themeLabel = document.getElementById('theme-label');
     const body = document.body;
-    const logo = document.getElementById('site-logo');
     
     // Check for saved theme preference or default to light
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme === 'dark') {
         body.classList.add('dark-theme');
         themeToggle.checked = true;
-        updateLogo('dark');
+        themeLabel.textContent = 'Dark Mode';
     } else {
-        updateLogo('light');
+        themeLabel.textContent = 'Light Mode';
     }
     
     // Theme toggle event listener
@@ -25,30 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
             // Switch to dark theme
             body.classList.add('dark-theme');
             localStorage.setItem('theme', 'dark');
-            updateLogo('dark');
+            themeLabel.textContent = 'Dark Mode';
         } else {
             // Switch to light theme
             body.classList.remove('dark-theme');
             localStorage.setItem('theme', 'light');
-            updateLogo('light');
+            themeLabel.textContent = 'Light Mode';
         }
     });
     
-    // Function to update logo based on theme
-    function updateLogo(theme) {
-        if (theme === 'dark') {
-            logo.src = 'images/logo-light.jpg';
-            logo.alt = 'WebDevRecruit Logo - Dark Theme';
-        } else {
-            logo.src = 'images/logo-dark.jpg';
-            logo.alt = 'WebDevRecruit Logo - Light Theme';
-        }
-    }
+    // Add active class to current page in navigation
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-menu a');
     
-    // Simple navigation toggle (placeholder for future functionality)
-    function toggleMenu() {
-        console.log("Menu toggle would work here");
-    }
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage || (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
     
     // Initialize
     console.log("Theme system initialized. Current theme:", savedTheme);
