@@ -225,3 +225,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize
     console.log("Theme system initialized. Current theme:", savedTheme);
 });
+    // Video Play Functionality
+    const videoPlayer = document.querySelector('.company-video-player');
+    const playButton = document.querySelector('.play-button');
+    const videoOverlay = document.querySelector('.video-overlay');
+    
+    if (playButton && videoPlayer) {
+        playButton.addEventListener('click', () => {
+            videoPlayer.play();
+            videoOverlay.style.opacity = '0';
+            videoOverlay.style.pointerEvents = 'none';
+        });
+        
+        videoPlayer.addEventListener('pause', () => {
+            videoOverlay.style.opacity = '1';
+            videoOverlay.style.pointerEvents = 'auto';
+        });
+        
+        videoPlayer.addEventListener('ended', () => {
+            videoOverlay.style.opacity = '1';
+            videoOverlay.style.pointerEvents = 'auto';
+        });
+    }
