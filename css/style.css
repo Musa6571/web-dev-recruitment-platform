@@ -5,17 +5,52 @@
     box-sizing: border-box;
 }
 
+/* CSS Variables for Light Theme (Default) */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #2c3e50;
+    --footer-bg: #2c3e50;
+    --hero-bg: #3498db;
+    --testimonial-bg: #f9f9f9;
+    --border-color: #ddd;
+}
+
+/* CSS Variables for Dark Theme */
+.dark-theme {
+    --primary-color: #34495e;
+    --secondary-color: #2980b9;
+    --accent-color: #c0392b;
+    --background-color: #1a1a2e;
+    --text-color: #ecf0f1;
+    --header-bg: #0f3460;
+    --footer-bg: #0f3460;
+    --hero-bg: #16213e;
+    --testimonial-bg: #2d3748;
+    --border-color: #4a5568;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header */
+/* Sticky Header */
 header {
-    background-color: #2c3e50;
+    background-color: var(--header-bg);
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
 }
 
 nav {
@@ -24,14 +59,24 @@ nav {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
+.logo {
+    height: 40px;
+    width: auto;
+    transition: opacity 0.3s;
+}
+
+/* Navigation Menu */
 .nav-menu {
     display: flex;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu li {
@@ -41,18 +86,97 @@ nav {
 .nav-menu a {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
-    color: #3498db;
+    color: var(--secondary-color);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Theme Toggle Container */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-label {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* iPhone-style Theme Toggle Switch */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.theme-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .theme-slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .theme-slider:before {
+    transform: translateX(26px);
 }
 
 /* Hero section */
 .hero {
-    background-color: #3498db;
+    background-color: var(--hero-bg);
     color: white;
     text-align: center;
     padding: 4rem 2rem;
+    transition: background-color 0.3s;
 }
 
 .hero h1 {
@@ -62,12 +186,18 @@ nav {
 
 .cta-button {
     display: inline-block;
-    background-color: #e74c3c;
+    background-color: var(--accent-color);
     color: white;
     padding: 0.8rem 2rem;
     margin-top: 1rem;
     text-decoration: none;
     border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #d63031;
+    transform: translateY(-2px);
 }
 
 /* Company intro */
@@ -79,37 +209,45 @@ nav {
 
 .company-intro h2 {
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--primary-color);
 }
 
 /* Testimonial */
 .testimonial {
-    background-color: #f9f9f9;
+    background-color: var(--testimonial-bg);
     padding: 3rem 2rem;
     text-align: center;
+    transition: background-color 0.3s;
 }
 
 blockquote {
     font-style: italic;
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 cite {
     font-weight: bold;
-    color: #7f8c8d;
+    color: var(--primary-color);
 }
 
 /* Footer */
 footer {
-    background-color: #2c3e50;
+    background-color: var(--footer-bg);
     color: white;
     text-align: center;
     padding: 2rem;
+    transition: background-color 0.3s;
 }
 
 .footer-links a {
-    color: #3498db;
+    color: var(--secondary-color);
     margin: 0 0.5rem;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
 }
