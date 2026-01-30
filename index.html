@@ -12,62 +12,196 @@
         <nav>
             <!-- Logo Image -->
             <div class="logo-container">
-                <img src="images/logo-dark.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
             </div>
             
-            <!-- Navigation Menu -->
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="profiles.html">Profiles</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <!-- Navigation Menu - Centered -->
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="profiles.html">Profiles</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
             
             <!-- Theme Toggle Switch -->
             <div class="theme-toggle-container">
-                <span class="theme-label">Light</span>
                 <label class="theme-switch">
                     <input type="checkbox" id="theme-toggle">
                     <span class="theme-slider"></span>
                 </label>
-                <span class="theme-label">Dark</span>
+                <span class="theme-label" id="theme-label">Light Mode</span>
             </div>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main>
+        <!-- Hero Section -->
         <section class="hero">
-            <h1>Join the Future of Web Development</h1>
-            <p>We train and recruit passionate web developers. Start your journey with us.</p>
-            <a href="apply.html" class="cta-button">Apply Now</a>
+            <div class="hero-content">
+                <h1 class="hero-title">Join the Future of Web Development</h1>
+                <p class="hero-subtitle">We train and recruit passionate web developers. Start your journey with us and build the next generation of digital experiences.</p>
+                <div class="hero-actions">
+                    <a href="apply.html" class="cta-button primary">Apply Now</a>
+                    <a href="courses.html" class="cta-button secondary">View Courses</a>
+                </div>
+            </div>
         </section>
 
         <!-- Company Introduction -->
         <section class="company-intro">
-            <h2>About Our Company</h2>
-            <p>We are a growing IT company focused on designing and developing solutions. Our main goal is to create and support the next generation of web developers with user-friendly websites.</p>
-            <p>We believe in combining creativity and technical skills to deliver effective digital products to our clients.</p>
+            <div class="section-header">
+                <h2 class="section-title">About Our Company</h2>
+                <p class="section-subtitle">Building the future, one developer at a time</p>
+            </div>
+            <div class="company-content">
+                <div class="company-text">
+                    <p class="highlight">We are a growing IT company focused on designing and developing innovative solutions.</p>
+                    <p>Our main goal is to create and support the next generation of web developers with user-friendly websites and applications that make a difference.</p>
+                    <p>We believe in combining creativity and technical skills to deliver effective digital products to our clients across various industries.</p>
+                </div>
+                <div class="company-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Developers Trained</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Satisfaction Rate</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Testimonial Placeholder -->
-        <section class="testimonial">
-            <h2>What Our Developers Say</h2>
-            <blockquote>
-                "Working here has helped me build real-world skills and gain confidence in web development."
-                <cite>- Alex, Trainee Web Developer</cite>
-            </blockquote>
+        <!-- Team Culture -->
+        <section class="team-culture">
+            <div class="section-header">
+                <h2 class="section-title">Our Team Culture</h2>
+                <p class="section-subtitle">Collaboration, learning, and innovation at our core</p>
+            </div>
+            <div class="culture-cards">
+                <div class="culture-card">
+                    <div class="culture-icon">🤝</div>
+                    <h3>Collaboration</h3>
+                    <p>We work together across teams to deliver the best solutions for our clients and support each other's growth.</p>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <p>Regular training sessions, workshops, and access to the latest tools and technologies keep our skills sharp.</p>
+                </div>
+                <div class="culture-card">
+                    <div class="culture-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>We encourage creative thinking and experimentation to solve complex problems in new ways.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="section-header">
+                <h2 class="section-title">What Our Developers Say</h2>
+                <p class="section-subtitle">Real experiences from our team members</p>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Working here has helped me build real-world skills and gain confidence in web development. The support from the team has been amazing."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Alex Johnson</h4>
+                                <p class="author-role">Trainee Web Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"This company encouraged me to learn, improve, and work on real projects. I feel valued and motivated every day."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Sanjeep Patel</h4>
+                                <p class="author-role">Junior Front-End Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"We focus on teamwork and growth. Helping new developers progress while delivering quality work is what makes this company special."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Sarah Williams</h4>
+                                <p class="author-role">Senior Web Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="final-cta">
+            <div class="cta-content">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Join our team of passionate developers and work on exciting projects while growing your skills.</p>
+                <a href="apply.html" class="cta-button large">Apply Now →</a>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Web Dev Recruitment Platform</p>
-        <div class="footer-links">
-            <a href="contact.html">Contact</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="#">Social Links</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="footer-logo-img">
+                <p class="footer-tagline">Building the next generation of web developers</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="profiles.html">Profiles</a></li>
+                        <li><a href="apply.html">Apply</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Web Dev Recruitment Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
