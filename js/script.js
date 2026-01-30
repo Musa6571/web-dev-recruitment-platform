@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         themeLabel.textContent = 'Light Mode';
     }
     
-    // Theme toggle event listener
+    // Theme toggle event listener - FIXED
     themeToggle.addEventListener('change', function() {
         if (this.checked) {
             // Switch to dark theme
@@ -55,6 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
         aiHelperPanel.style.transform = 'translateY(20px)';
     });
     
+    // Also show panel when clicking the button
+    aiHelperBtn.addEventListener('click', () => {
+        if (aiHelperPanel.style.opacity === '1') {
+            aiHelperPanel.style.opacity = '0';
+            aiHelperPanel.style.visibility = 'hidden';
+            aiHelperPanel.style.transform = 'translateY(20px)';
+        } else {
+            aiHelperPanel.style.opacity = '1';
+            aiHelperPanel.style.visibility = 'visible';
+            aiHelperPanel.style.transform = 'translateY(0)';
+            aiInput.focus();
+        }
+    });
+    
     // AI responses database
     const aiResponses = {
         "How do I apply?": "You can apply by visiting our Apply page and filling out the online application form. Make sure to upload your CV and include a personal statement about why you want to join our team.",
@@ -64,17 +78,39 @@ document.addEventListener('DOMContentLoaded', function() {
         "What is the hiring process?": "Our process includes: 1) Online application, 2) Initial screening, 3) Technical assessment, 4) Interview, 5) Final decision. The entire process takes about 2-3 weeks.",
         "Do you offer internships?": "Yes! We offer 3-6 month internships for students and recent graduates. Check the Apply page for current opportunities.",
         "What is the work culture like?": "We have a collaborative, learning-focused culture with regular team events, training sessions, and opportunities for career growth. Work-life balance is important to us.",
-        "What technologies do you use?": "We use modern technologies including React, Node.js, Python, Docker, AWS, and various databases. We're always exploring new tools and frameworks."
+        "What technologies do you use?": "We use modern technologies including React, Node.js, Python, Docker, AWS, and various databases. We're always exploring new tools and frameworks.",
+        "How long is the training?": "Our training programs typically last 3-6 months, depending on the course. We offer both full-time and part-time options.",
+        "Is remote work available?": "Yes, we offer hybrid and remote work options for many positions after the initial training period."
     };
     
     // Add message to chat
     function addMessage(sender, message) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `ai-message ${sender}`;
-        messageDiv.innerHTML = `<strong>${sender === 'user' ? 'You' : 'AI Assistant'}:</strong> ${message}`;
+        messageDiv.style.padding = '8px 12px';
+        messageDiv.style.marginBottom = '10px';
+        messageDiv.style.borderRadius = '8px';
+        messageDiv.style.maxWidth = '80%';
+        
+        if (sender === 'user') {
+            messageDiv.style.backgroundColor = 'var(--ai-color)';
+            messageDiv.style.color = 'white';
+            messageDiv.style.marginLeft = 'auto';
+            messageDiv.innerHTML = `<strong>You:</strong> ${message}`;
+        } else {
+            messageDiv.style.backgroundColor = 'var(--card-bg)';
+            messageDiv.style.color = 'var(--text-color)';
+            messageDiv.style.border = '1px solid var(--border-color)';
+            messageDiv.style.marginRight = 'auto';
+            messageDiv.innerHTML = `<strong>AI Assistant:</strong> ${message}`;
+        }
+        
         aiChat.appendChild(messageDiv);
         aiChat.scrollTop = aiChat.scrollHeight;
     }
+    
+    // Initialize chat with welcome message
+    addMessage('ai', 'Hello! I\'m your AI assistant. How can I help you today? You can ask about applying, courses, required skills, or contact information.');
     
     // Handle AI option clicks
     aiOptions.forEach(option => {
@@ -90,12 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Handle manual input
-    aiSend.addEventListener('click', sendMessage);
-    aiInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
-    
+    // Handle manual input - FIXED
     function sendMessage() {
         const message = aiInput.value.trim();
         if (message) {
@@ -107,13 +138,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 let bestMatch = null;
                 let bestScore = 0;
                 
-                Object.keys(aiResponses).forEach(key => {
-                    const score = similarity(message.toLowerCase(), key.toLowerCase());
-                    if (score > bestScore && score > 0.3) {
-                        bestScore = score;
-                        bestMatch = key;
+                // Convert message to lowercase for comparison
+                const messageLower = message.toLowerCase();
+                
+                // Check for keywords first
+                const keywords = {
+                    'apply': 'How do I apply?',
+                    'application': 'How do I apply?',
+                    'courses': 'What courses are available?',
+                    'skills': 'What skills are required?',
+                    'contact': 'Contact information',
+                    'email': 'Contact information',
+                    'phone': 'Contact information',
+                    'hiring': 'What is the hiring process?',
+                    'internship': 'Do you offer internships?',
+                    'culture': 'What is the work culture like?',
+                    'technologies': 'What technologies do you use?',
+                    'tech': 'What technologies do you use?',
+                    'training': 'How long is the training?',
+                    'remote': 'Is remote work available?',
+                    'work from home': 'Is remote work available?'
+                };
+                
+                // Check for keyword matches
+                for (const [keyword, responseKey] of Object.entries(keywords)) {
+                    if (messageLower.includes(keyword)) {
+                        bestMatch = responseKey;
+                        break;
                     }
-                });
+                }
+                
+                // If no keyword match, do similarity check
+                if (!bestMatch) {
+                    Object.keys(aiResponses).forEach(key => {
+                        const score = similarity(messageLower, key.toLowerCase());
+                        if (score > bestScore && score > 0.3) {
+                            bestScore = score;
+                            bestMatch = key;
+                        }
+                    });
+                }
                 
                 const response = bestMatch ? aiResponses[bestMatch] : 
                     "I'm not sure about that. You can try asking about: applying, courses, required skills, or contact information. Or visit our Contact page for direct assistance.";
@@ -122,10 +186,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Simple text similarity function
+    // Event listeners for sending messages - FIXED
+    aiSend.addEventListener('click', sendMessage);
+    aiInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevent form submission if any
+            sendMessage();
+        }
+    });
+    
+    // Simple text similarity function - COMPLETED
     function similarity(s1, s2) {
-        let longer = s1;
-        let shorter = s2;
-        if (s1.length < s2.length) {
-            longer = s2;
-           
+        // Simple check for common words
+        const words1 = s1.split(' ');
+        const words2 = s2.split(' ');
+        
+        let commonWords = 0;
+        for (const word1 of words1) {
+            if (word1.length > 3 && words2.includes(word1)) {
+                commonWords++;
+            }
+        }
+        
+        return commonWords / Math.max(words1.length, words2.length);
+    }
+    
+    // Add active class to current page in navigation
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (currentPage === linkPage || (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Initialize
+    console.log("Theme system initialized. Current theme:", savedTheme);
+});
