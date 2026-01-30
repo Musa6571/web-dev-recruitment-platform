@@ -932,3 +932,17 @@ header nav {
 header {
     padding: 0.5rem 2rem;
 }
+
+/* Logo Wrapper for better styling */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+.logo-wrapper:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
