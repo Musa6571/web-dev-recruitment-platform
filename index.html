@@ -37,6 +37,47 @@
         </nav>
     </header>
 
+    <!-- AI Helper Button -->
+    <div class="ai-helper">
+        <button class="ai-helper-btn" id="aiHelperBtn">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text">AI Assistant</span>
+        </button>
+        <div class="ai-helper-panel" id="aiHelperPanel">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+            <div class="ai-content">
+                <div class="ai-options">
+                    <button class="ai-option" data-question="How do I apply?">
+                        <span>📝</span>
+                        Application Process
+                    </button>
+                    <button class="ai-option" data-question="What courses are available?">
+                        <span>📚</span>
+                        Available Courses
+                    </button>
+                    <button class="ai-option" data-question="What skills are required?">
+                        <span>💼</span>
+                        Required Skills
+                    </button>
+                    <button class="ai-option" data-question="Contact information">
+                        <span>📞</span>
+                        Contact Details
+                    </button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="ai-input">
+                    <input type="text" placeholder="Ask me anything..." id="aiInput">
+                    <button id="aiSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
@@ -80,6 +121,32 @@
             </div>
         </section>
 
+        <!-- Office Gallery -->
+        <section class="office-gallery">
+            <div class="section-header">
+                <h2 class="section-title">Our Office Environment</h2>
+                <p class="section-subtitle">Where creativity meets collaboration</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/image.jpg" alt="Modern office workspace" class="gallery-img">
+                    <div class="gallery-caption">Modern Workspace</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image1.jpg" alt="Collaboration area" class="gallery-img">
+                    <div class="gallery-caption">Collaboration Areas</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image2.jpg" alt="Team meeting room" class="gallery-img">
+                    <div class="gallery-caption">Meeting Rooms</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/image3.jpg" alt="Relaxation zone" class="gallery-img">
+                    <div class="gallery-caption">Relaxation Zone</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Team Culture -->
         <section class="team-culture">
             <div class="section-header">
@@ -105,45 +172,32 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <section class="testimonials">
+        <!-- Our Goals -->
+        <section class="our-goals">
             <div class="section-header">
-                <h2 class="section-title">What Our Developers Say</h2>
-                <p class="section-subtitle">Real experiences from our team members</p>
+                <h2 class="section-title">Our Main Goals</h2>
+                <p class="section-subtitle">What drives us forward</p>
             </div>
-            <div class="testimonial-cards">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"Working here has helped me build real-world skills and gain confidence in web development. The support from the team has been amazing."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Alex Johnson</h4>
-                                <p class="author-role">Trainee Web Developer</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <div class="goal-number">01</div>
+                    <h3>Deliver High-Quality Solutions</h3>
+                    <p>To provide accessible and effective web solutions that meet our clients' needs and exceed their expectations.</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"This company encouraged me to learn, improve, and work on real projects. I feel valued and motivated every day."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Sanjeep Patel</h4>
-                                <p class="author-role">Junior Front-End Developer</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="goal-item">
+                    <div class="goal-number">02</div>
+                    <h3>Recruit & Train Talent</h3>
+                    <p>To identify and develop skilled web developers who are passionate about technology and innovation.</p>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">"We focus on teamwork and growth. Helping new developers progress while delivering quality work is what makes this company special."</p>
-                        <div class="testimonial-author">
-                            <div class="author-info">
-                                <h4>Sarah Williams</h4>
-                                <p class="author-role">Senior Web Developer</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="goal-item">
+                    <div class="goal-number">03</div>
+                    <h3>Create Positive Environment</h3>
+                    <p>To foster an inclusive and supportive workplace where every team member feels valued and empowered.</p>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-number">04</div>
+                    <h3>Support Professional Growth</h3>
+                    <p>To provide continuous learning opportunities and real-world experience for career advancement.</p>
                 </div>
             </div>
         </section>
