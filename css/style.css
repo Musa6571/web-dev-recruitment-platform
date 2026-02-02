@@ -1181,3 +1181,8 @@ footer {
     opacity: 0.8;
     line-height: 1.6;
 }
+
+/* Ensure all course cards are visible */
+.course-card {
+    display: flex !important;
+}
