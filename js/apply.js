@@ -108,20 +108,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Skill checkbox styling
-    const skillCheckboxes = applyForm.querySelectorAll('.skill-option input[type="checkbox"]');
-    skillCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const label = this.parentElement;
-            if (this.checked) {
-                label.style.backgroundColor = 'rgba(52, 152, 219, 0.1)';
-                label.style.borderColor = 'var(--secondary-color)';
-            } else {
-                label.style.backgroundColor = '';
-                label.style.borderColor = '';
-            }
-        });
+    // FIXED: Skill checkbox styling - simpler approach
+const skillOptions = applyForm.querySelectorAll('.skill-option');
+skillOptions.forEach(option => {
+    const checkbox = option.querySelector('input[type="checkbox"]');
+    
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            option.style.backgroundColor = 'rgba(52, 152, 219, 0.1)';
+            option.style.borderColor = 'var(--secondary-color)';
+        } else {
+            option.style.backgroundColor = '';
+            option.style.borderColor = '';
+        }
     });
+    
+    // Also add click event to the entire option for better UX
+    option.addEventListener('click', function(e) {
+        // Don't trigger if clicking directly on the checkbox (it handles itself)
+        if (e.target.type !== 'checkbox') {
+            checkbox.checked = !checkbox.checked;
+            checkbox.dispatchEvent(new Event('change'));
+        }
+    });
+});
     
     // Upload method selection styling
     const uploadOptions = applyForm.querySelectorAll('.upload-option input[type="radio"]');
