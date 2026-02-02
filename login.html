@@ -3,37 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Recruitment - [Page Name]</title>
+    <title>Web Dev Recruitment - Login</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header>
         <nav>
-            <div class="logo">WebDevRecruit</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="profiles.html">Profiles</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <!-- Logo Image -->
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
+            </div>
+            
+            <!-- Navigation Menu - Centered -->
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="profiles.html">Profiles</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                    <li><a href="login.html" class="active">Login</a></li>
+                </ul>
+            </div>
+            
+            <!-- Theme Toggle Switch -->
+            <div class="theme-toggle-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="theme-slider"></span>
+                </label>
+                <span class="theme-label" id="theme-label">Light Mode</span>
+            </div>
         </nav>
     </header>
 
+    <!-- AI Helper Button -->
+    <div class="ai-helper">
+        <button class="ai-helper-btn" id="aiHelperBtn">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text">AI Assistant</span>
+        </button>
+        <div class="ai-helper-panel" id="aiHelperPanel">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+            <div class="ai-content">
+                <div class="ai-options">
+                    <button class="ai-option" data-question="How do I apply?">
+                        <span>📝</span>
+                        Application Process
+                    </button>
+                    <button class="ai-option" data-question="What courses are available?">
+                        <span>📚</span>
+                        Available Courses
+                    </button>
+                    <button class="ai-option" data-question="What skills are required?">
+                        <span>💼</span>
+                        Required Skills
+                    </button>
+                    <button class="ai-option" data-question="Contact information">
+                        <span>📞</span>
+                        Contact Details
+                    </button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="ai-input">
+                    <input type="text" placeholder="Ask me anything..." id="aiInput">
+                    <button id="aiSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <h1>[Page Title Here]</h1>
-        <!-- Add content from your PowerPoint here -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome Back</h1>
+                <p class="hero-subtitle">Sign in to your account to access your dashboard, applications, and courses.</p>
+            </div>
+        </section>
+
+        <!-- Login Container -->
+        <section class="login-container">
+            <div class="login-wrapper">
+                <!-- Login Card -->
+                <div class="login-card">
+                    <div class="login-header">
+                        <h2 class="login-title">Sign In to Your Account</h2>
+                        <p class="login-subtitle">Enter your credentials to access your dashboard</p>
+                    </div>
+
+                    <!-- Social Login Buttons -->
+                    <div class="social-login">
+                        <button class="social-btn google-btn" id="googleLogin">
+                            <i class="fab fa-google"></i>
+                            <span>Sign in with Google</span>
+                        </button>
+                        
+                        <button class="social-btn microsoft-btn" id="microsoftLogin">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Sign in with Microsoft</span>
+                        </button>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">or continue with email</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" id="passwordToggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <div class="remember-me">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Remember me</label>
+                            </div>
+                            <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="loginSubmit">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <!-- Sign Up Link -->
+                    <div class="signup-link">
+                        <p>Don't have an account? <a href="signup.html" id="signupLink">Sign up here</a></p>
+                    </div>
+
+                    <!-- Demo Accounts Notice -->
+                    <div class="demo-notice">
+                        <div class="demo-header">
+                            <i class="fas fa-info-circle"></i>
+                            <h4>Demo Accounts</h4>
+                        </div>
+                        <p>For testing purposes, you can use:</p>
+                        <ul class="demo-accounts">
+                            <li><strong>Student:</strong> student@demo.com / password123</li>
+                            <li><strong>Instructor:</strong> instructor@demo.com / password123</li>
+                            <li><strong>Admin:</strong> admin@demo.com / password123</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Login Benefits Sidebar -->
+                <div class="login-benefits">
+                    <div class="benefits-header">
+                        <h3>Why Create an Account?</h3>
+                        <p>Join our community of developers</p>
+                    </div>
+                    
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Track Applications</h4>
+                                <p>Monitor your application status and get real-time updates</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Access Courses</h4>
+                                <p>Enroll in courses and track your learning progress</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Community Access</h4>
+                                <p>Connect with other developers and mentors</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Job Alerts</h4>
+                                <p>Get notified about new opportunities matching your skills</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-preview">
+                        <div class="stat">
+                            <span class="stat-number">1,200+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">85%</span>
+                            <span class="stat-label">Career Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Web Dev Recruitment Platform</p>
-        <div class="footer-links">
-            <a href="contact.html">Contact</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="#">Social Links</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="footer-logo-img">
+                <p class="footer-tagline">Building the next generation of web developers</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="profiles.html">Profiles</a></li>
+                        <li><a href="apply.html">Apply</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web Dev Recruitment Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Add this to your CSS file (style.css) -->
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
