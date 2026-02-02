@@ -36,7 +36,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+        // Update active tab on scroll
+    const courseSections = [
+        { id: 'beginner-courses', category: 'beginner' },
+        { id: 'intermediate-courses', category: 'intermediate' },
+        { id: 'advanced-courses', category: 'advanced' }
+    ];
     
+    function updateActiveTabOnScroll() {
+        const scrollPosition = window.scrollY + 100; // Offset for header
+        
+        for (const section of courseSections) {
+            const element = document.getElementById(section.id);
+            if (element) {
+                const top = element.offsetTop;
+                const bottom = top + element.offsetHeight;
+                
+                if (scrollPosition >= top && scrollPosition < bottom) {
+                    categoryTabs.forEach(tab => {
+                        tab.classList.remove('active');
+                        if (tab.getAttribute('data-category') === section.category) {
+                            tab.classList.add('active');
+                        }
+                    });
+                    break;
+                }
+            }
+        }
+    }
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', updateActiveTabOnScroll);
     // Get elements
     const themeToggle = document.getElementById('theme-toggle');
     const themeLabel = document.getElementById('theme-label');
