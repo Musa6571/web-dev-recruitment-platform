@@ -3,34 +3,559 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Recruitment - [Page Name]</title>
+    <title>Web Dev Recruitment - Courses</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header>
         <nav>
-            <div class="logo">WebDevRecruit</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="profiles.html">Profiles</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <!-- Logo Image -->
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
+            </div>
+            
+            <!-- Navigation Menu - Centered -->
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html" class="active">Courses</a></li>
+                    <li><a href="profiles.html">Profiles</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            
+            <!-- Theme Toggle Switch -->
+            <div class="theme-toggle-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="theme-slider"></span>
+                </label>
+                <span class="theme-label" id="theme-label">Light Mode</span>
+            </div>
         </nav>
     </header>
 
+    <!-- AI Helper Button -->
+    <div class="ai-helper">
+        <button class="ai-helper-btn" id="aiHelperBtn">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text">AI Assistant</span>
+        </button>
+        <div class="ai-helper-panel" id="aiHelperPanel">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+            <div class="ai-content">
+                <div class="ai-options">
+                    <button class="ai-option" data-question="How do I apply?">
+                        <span>📝</span>
+                        Application Process
+                    </button>
+                    <button class="ai-option" data-question="What courses are available?">
+                        <span>📚</span>
+                        Available Courses
+                    </button>
+                    <button class="ai-option" data-question="What skills are required?">
+                        <span>💼</span>
+                        Required Skills
+                    </button>
+                    <button class="ai-option" data-question="Contact information">
+                        <span>📞</span>
+                        Contact Details
+                    </button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="ai-input">
+                    <input type="text" placeholder="Ask me anything..." id="aiInput">
+                    <button id="aiSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <h1>[Page Title Here]</h1>
-        <!-- Add content from your PowerPoint here -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Master Web Development</h1>
+                <p class="hero-subtitle">Comprehensive courses designed for beginners and experienced developers alike. Build real-world skills with our expert-led training programs.</p>
+                <div class="hero-actions">
+                    <a href="#beginner-courses" class="cta-button primary">Browse Courses</a>
+                    <a href="apply.html" class="cta-button secondary">Apply Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="courses-intro">
+            <div class="section-header">
+                <h2 class="section-title">Why Learn With Us?</h2>
+                <p class="section-subtitle">Industry-relevant curriculum, expert instructors, and hands-on projects</p>
+            </div>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <p>Our courses are designed by industry professionals to give you the practical skills needed in today's web development job market. Whether you're starting from scratch or looking to specialize, we have a path for you.</p>
+                    <p>All courses include real-world projects, code reviews, and career support to help you succeed.</p>
+                </div>
+                <div class="intro-stats">
+                    <div class="intro-stat">
+                        <span class="intro-stat-number">95%</span>
+                        <span class="intro-stat-label">Job Placement Rate</span>
+                    </div>
+                    <div class="intro-stat">
+                        <span class="intro-stat-number">500+</span>
+                        <span class="intro-stat-label">Hours of Content</span>
+                    </div>
+                    <div class="intro-stat">
+                        <span class="intro-stat-number">1-on-1</span>
+                        <span class="intro-stat-label">Mentorship</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Categories -->
+        <section class="course-categories">
+            <div class="section-header">
+                <h2 class="section-title">Course Categories</h2>
+                <p class="section-subtitle">Choose your learning path based on your experience level</p>
+            </div>
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="beginner">Beginner</button>
+                <button class="category-tab" data-category="intermediate">Intermediate</button>
+                <button class="category-tab" data-category="advanced">Advanced</button>
+            </div>
+        </section>
+
+        <!-- Beginner Courses -->
+        <section class="courses-section" id="beginner-courses">
+            <div class="section-header">
+                <h2 class="section-title">Beginner Courses</h2>
+                <p class="section-subtitle">Start your web development journey with these foundational courses</p>
+            </div>
+            <div class="courses-grid">
+                <!-- Course 1: Web Development Basics -->
+                <div class="course-card" data-level="beginner">
+                    <div class="course-header">
+                        <div class="course-icon">🌐</div>
+                        <div class="course-level beginner">Beginner</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Web Development Basics</h3>
+                        <p class="course-description">Learn the fundamentals of web development including HTML, CSS, and JavaScript. Build your first responsive websites.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>40 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>5 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>HTML5 & Semantic Markup</li>
+                                <li>CSS3 & Responsive Design</li>
+                                <li>JavaScript Fundamentals</li>
+                                <li>Git & Version Control</li>
+                                <li>Web Deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 2: UI/UX Design Fundamentals -->
+                <div class="course-card" data-level="beginner">
+                    <div class="course-header">
+                        <div class="course-icon">🎨</div>
+                        <div class="course-level beginner">Beginner</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">UI/UX Design Fundamentals</h3>
+                        <p class="course-description">Master user interface and user experience design principles. Create intuitive and beautiful digital products.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>6 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>30 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>4 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>Design Principles & Psychology</li>
+                                <li>Wireframing & Prototyping</li>
+                                <li>Figma & Design Tools</li>
+                                <li>User Research Methods</li>
+                                <li>Design Systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intermediate Courses -->
+        <section class="courses-section" id="intermediate-courses">
+            <div class="section-header">
+                <h2 class="section-title">Intermediate Courses</h2>
+                <p class="section-subtitle">Build on your foundation with specialized skills</p>
+            </div>
+            <div class="courses-grid">
+                <!-- Course 3: Advanced Python -->
+                <div class="course-card" data-level="intermediate">
+                    <div class="course-header">
+                        <div class="course-icon">🐍</div>
+                        <div class="course-level intermediate">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Advanced Python</h3>
+                        <p class="course-description">Deep dive into Python programming for web development, data analysis, and automation. Master frameworks and best practices.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>50 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>6 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>Django & Flask Frameworks</li>
+                                <li>RESTful API Development</li>
+                                <li>Database Integration</li>
+                                <li>Testing & Debugging</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 4: React and Frontend -->
+                <div class="course-card" data-level="intermediate">
+                    <div class="course-header">
+                        <div class="course-icon">⚛️</div>
+                        <div class="course-level intermediate">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">React and Frontend Development</h3>
+                        <p class="course-description">Become a React expert. Learn modern frontend development with React, Redux, and contemporary JavaScript.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>60 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>8 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>React Components & Hooks</li>
+                                <li>State Management (Redux)</li>
+                                <li>React Router & Navigation</li>
+                                <li>API Integration</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 5: DevOps for Web Dev -->
+                <div class="course-card" data-level="intermediate">
+                    <div class="course-header">
+                        <div class="course-icon">🚀</div>
+                        <div class="course-level intermediate">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">DevOps for Web Development</h3>
+                        <p class="course-description">Master the tools and practices for deploying, scaling, and maintaining web applications in production environments.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>10 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>45 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>5 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>Docker & Containerization</li>
+                                <li>CI/CD Pipelines</li>
+                                <li>Cloud Deployment (AWS)</li>
+                                <li>Monitoring & Logging</li>
+                                <li>Infrastructure as Code</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 6: Database Design -->
+                <div class="course-card" data-level="intermediate">
+                    <div class="course-header">
+                        <div class="course-icon">🗄️</div>
+                        <div class="course-level intermediate">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Database Design & Management</h3>
+                        <p class="course-description">Learn to design, implement, and optimize databases for web applications. Master SQL and NoSQL databases.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>8 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>35 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>4 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>SQL & Database Design</li>
+                                <li>PostgreSQL & MySQL</li>
+                                <li>MongoDB & NoSQL</li>
+                                <li>Database Optimization</li>
+                                <li>Data Security</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Courses -->
+        <section class="courses-section" id="advanced-courses">
+            <div class="section-header">
+                <h2 class="section-title">Advanced Courses</h2>
+                <p class="section-subtitle">Master complex topics and become an expert</p>
+            </div>
+            <div class="courses-grid">
+                <!-- Course 7: Full-Stack JavaScript -->
+                <div class="course-card" data-level="advanced">
+                    <div class="course-header">
+                        <div class="course-icon">🔗</div>
+                        <div class="course-level advanced">Advanced</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Full-Stack JavaScript</h3>
+                        <p class="course-description">Build complete web applications using the MERN stack (MongoDB, Express, React, Node.js) from start to finish.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>14 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>70 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>10 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>Node.js & Express.js</li>
+                                <li>MongoDB & Mongoose</li>
+                                <li>Authentication & Authorization</li>
+                                <li>Real-time Applications</li>
+                                <li>Microservices Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Course 8: Mobile App Development -->
+                <div class="course-card" data-level="advanced">
+                    <div class="course-header">
+                        <div class="course-icon">📱</div>
+                        <div class="course-level advanced">Advanced</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Mobile App Development</h3>
+                        <p class="course-description">Create cross-platform mobile applications using React Native. Build, test, and deploy apps for iOS and Android.</p>
+                        <div class="course-details">
+                            <div class="course-detail">
+                                <span class="detail-icon">⏱️</span>
+                                <span>12 Weeks</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">📖</span>
+                                <span>55 Lessons</span>
+                            </div>
+                            <div class="course-detail">
+                                <span class="detail-icon">🎯</span>
+                                <span>7 Projects</span>
+                            </div>
+                        </div>
+                        <div class="course-topics">
+                            <h4>What You'll Learn:</h4>
+                            <ul>
+                                <li>React Native Fundamentals</li>
+                                <li>Native Modules & APIs</li>
+                                <li>App Store Deployment</li>
+                                <li>Push Notifications</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <a href="#" class="course-button">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Benefits -->
+        <section class="learning-benefits">
+            <div class="section-header">
+                <h2 class="section-title">How You'll Learn</h2>
+                <p class="section-subtitle">Our proven approach to effective learning</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎥</div>
+                    <h3>Video Lessons</h3>
+                    <p>High-quality, recorded lessons you can watch at your own pace, with lifetime access.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💻</div>
+                    <h3>Hands-on Projects</h3>
+                    <p>Build real-world projects that you can add to your portfolio and showcase to employers.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👨‍🏫</div>
+                    <h3>Expert Mentors</h3>
+                    <p>Get guidance from industry professionals with years of real-world experience.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Community Support</h3>
+                    <p>Join our community of learners for peer support, code reviews, and networking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="final-cta">
+            <div class="cta-content">
+                <h2>Ready to Start Learning?</h2>
+                <p>Join thousands of developers who have transformed their careers with our courses.</p>
+                <a href="apply.html" class="cta-button large">Apply for Courses →</a>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Web Dev Recruitment Platform</p>
-        <div class="footer-links">
-            <a href="contact.html">Contact</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="#">Social Links</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="footer-logo-img">
+                <p class="footer-tagline">Building the next generation of web developers</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="profiles.html">Profiles</a></li>
+                        <li><a href="apply.html">Apply</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Web Dev Recruitment Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
