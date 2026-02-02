@@ -3,37 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Recruitment - [Page Name]</title>
+    <title>Web Dev Recruitment - Apply Now</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header>
         <nav>
-            <div class="logo">WebDevRecruit</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="profiles.html">Profiles</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <!-- Logo Image -->
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
+            </div>
+            
+            <!-- Navigation Menu - Centered -->
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="profiles.html">Profiles</a></li>
+                    <li><a href="apply.html" class="active">Apply</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            
+            <!-- Theme Toggle Switch -->
+            <div class="theme-toggle-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="theme-slider"></span>
+                </label>
+                <span class="theme-label" id="theme-label">Light Mode</span>
+            </div>
         </nav>
     </header>
 
+    <!-- AI Helper Button -->
+    <div class="ai-helper">
+        <button class="ai-helper-btn" id="aiHelperBtn">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text">AI Assistant</span>
+        </button>
+        <div class="ai-helper-panel" id="aiHelperPanel">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+            <div class="ai-content">
+                <div class="ai-options">
+                    <button class="ai-option" data-question="How do I apply?">
+                        <span>📝</span>
+                        Application Process
+                    </button>
+                    <button class="ai-option" data-question="What courses are available?">
+                        <span>📚</span>
+                        Available Courses
+                    </button>
+                    <button class="ai-option" data-question="What skills are required?">
+                        <span>💼</span>
+                        Required Skills
+                    </button>
+                    <button class="ai-option" data-question="Contact information">
+                        <span>📞</span>
+                        Contact Details
+                    </button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="ai-input">
+                    <input type="text" placeholder="Ask me anything..." id="aiInput">
+                    <button id="aiSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <h1>[Page Title Here]</h1>
-        <!-- Add content from your PowerPoint here -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Apply Now</h1>
+                <p class="hero-subtitle">Start your journey as a web developer with our team. Complete the application form below to begin your career.</p>
+                <div class="hero-actions">
+                    <a href="#application-form" class="cta-button primary">Start Application</a>
+                    <a href="courses.html" class="cta-button secondary">View Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section class="application-form" id="application-form">
+            <div class="section-header">
+                <h2 class="section-title">Application Form</h2>
+                <p class="section-subtitle">Fill out all required fields to submit your application</p>
+            </div>
+            
+            <form id="applyForm" class="form-container">
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Personal Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="full-name">
+                                Full name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">
+                                First name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="first-name" name="first-name" required placeholder="First name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last-name">
+                                Last name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="last-name" name="last-name" required placeholder="Last name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="birth-date">
+                                Birth date <span class="required">*</span>
+                            </label>
+                            <div class="date-selector">
+                                <select id="birth-month" name="birth-month" required>
+                                    <option value="">Select month</option>
+                                    <option value="01">January</option>
+                                    <option value="02">February</option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                
+                                <select id="birth-day" name="birth-day" required>
+                                    <option value="">Select day</option>
+                                    <!-- Days 1-31 will be populated by JavaScript -->
+                                </select>
+                                
+                                <select id="birth-year" name="birth-year" required>
+                                    <option value="">Select year</option>
+                                    <!-- Years will be populated by JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="current-employment">
+                                Are you working now? <span class="required">*</span>
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="employment-status" value="yes" required>
+                                    <span class="radio-custom"></span>
+                                    Yes
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="employment-status" value="no" required>
+                                    <span class="radio-custom"></span>
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location & Salary Section -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Location & Expectations</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location">
+                                Location <span class="required">*</span>
+                            </label>
+                            <input type="text" id="location" name="location" required placeholder="Where are you located now?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="salary-expectations">
+                                What are your salary expectations? <span class="required">*</span>
+                            </label>
+                            <input type="text" id="salary-expectations" name="salary-expectations" required placeholder="e.g., £30,000 - £40,000">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills & Technologies Section -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Skills & Technologies</h3>
+                    
+                    <div class="form-group full-width">
+                        <label for="technologies">
+                            What do you use? (Platforms, OS, programming languages, etc.) <span class="required">*</span>
+                        </label>
+                        <div class="skills-grid">
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-java" name="skills" value="Java">
+                                <label for="skill-java">Java</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-android" name="skills" value="Android">
+                                <label for="skill-android">Android</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-eclipse" name="skills" value="Eclipse">
+                                <label for="skill-eclipse">Eclipse</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-html" name="skills" value="HTML">
+                                <label for="skill-html">HTML</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-css" name="skills" value="CSS">
+                                <label for="skill-css">CSS</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-perl" name="skills" value="Perl">
+                                <label for="skill-perl">Perl</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-microsoft-mobile" name="skills" value="Microsoft Mobile">
+                                <label for="skill-microsoft-mobile">Microsoft Mobile</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-blackberry" name="skills" value="Blackberry">
+                                <label for="skill-blackberry">Blackberry</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-photoshop" name="skills" value="Photoshop">
+                                <label for="skill-photoshop">Photoshop</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-joomla" name="skills" value="Joomla">
+                                <label for="skill-joomla">Joomla</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-linux" name="skills" value="Linux">
+                                <label for="skill-linux">Linux</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-dreamweaver" name="skills" value="Dreamweaver">
+                                <label for="skill-dreamweaver">Dreamweaver</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-php" name="skills" value="PHP">
+                                <label for="skill-php">PHP</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-windows" name="skills" value="Windows">
+                                <label for="skill-windows">Windows</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-figma" name="skills" value="Figma">
+                                <label for="skill-figma">Figma</label>
+                            </div>
+                            <div class="skill-option">
+                                <input type="checkbox" id="skill-mac" name="skills" value="Mac">
+                                <label for="skill-mac">Mac</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media & Personal Statement -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Social Media & Personal Statement</h3>
+                    
+                    <div class="form-group full-width">
+                        <label for="social-sites">
+                            List of your social sites
+                        </label>
+                        <textarea id="social-sites" name="social-sites" rows="2" placeholder="e.g., @username, www.facebook.com/user, linkedin.com/in/username"></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="personal-statement">
+                            Personal statement <span class="required">*</span>
+                        </label>
+                        <textarea id="personal-statement" name="personal-statement" rows="5" required placeholder="Tell us about yourself, your experience, and why you want to join our team..."></textarea>
+                    </div>
+                </div>
+
+                <!-- CV Upload Section -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Curriculum Vitae (CV)</h3>
+                    
+                    <div class="form-group full-width">
+                        <label>
+                            Upload your CV <span class="required">*</span>
+                        </label>
+                        <div class="upload-options">
+                            <div class="upload-option">
+                                <input type="radio" id="upload-computer" name="upload-method" value="computer" required>
+                                <label for="upload-computer">
+                                    <span class="upload-icon">💻</span>
+                                    <span class="upload-text">Upload from computer</span>
+                                </label>
+                            </div>
+                            
+                            <div class="upload-option">
+                                <input type="radio" id="upload-image" name="upload-method" value="image">
+                                <label for="upload-image">
+                                    <span class="upload-icon">📷</span>
+                                    <span class="upload-text">Take a picture/insert image</span>
+                                </label>
+                            </div>
+                            
+                            <div class="upload-option">
+                                <input type="radio" id="upload-drive" name="upload-method" value="drive">
+                                <label for="upload-drive">
+                                    <span class="upload-icon">☁️</span>
+                                    <span class="upload-text">Upload from drive</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="file-input-container" id="fileInputContainer">
+                            <input type="file" id="cv-file" name="cv-file" accept=".pdf,.doc,.docx,.txt">
+                            <label for="cv-file" class="file-upload-btn">
+                                <span class="upload-icon">📄</span>
+                                <span class="upload-text">Choose file</span>
+                            </label>
+                            <span class="file-name" id="fileName">No file chosen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Submission -->
+                <div class="form-submission">
+                    <button type="submit" class="submit-button">Submit Application</button>
+                    <p class="form-note">By submitting this form, you agree to our <a href="privacy-policy.html">Privacy Policy</a> and consent to our processing of your personal data.</p>
+                </div>
+            </form>
+        </section>
+
+        <!-- Application Tips -->
+        <section class="application-tips">
+            <div class="section-header">
+                <h2 class="section-title">Application Tips</h2>
+                <p class="section-subtitle">Make your application stand out</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-icon">📝</div>
+                    <h3>Complete All Fields</h3>
+                    <p>Ensure all required fields are filled out completely. Incomplete applications may not be processed.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">💼</div>
+                    <h3>Highlight Relevant Skills</h3>
+                    <p>Select all technologies and platforms you're experienced with. Don't be modest about your skills.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">✨</div>
+                    <h3>Personal Statement Matters</h3>
+                    <p>Use the personal statement to show your passion for web development and why you want to join us.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">📄</div>
+                    <h3>Update Your CV</h3>
+                    <p>Make sure your CV is current and highlights your most relevant experience and projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="final-cta">
+            <div class="cta-content">
+                <h2>Have Questions About Applying?</h2>
+                <p>Our team is here to help. Contact us if you need assistance with your application.</p>
+                <a href="contact.html" class="cta-button large">Contact Us →</a> 
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Web Dev Recruitment Platform</p>
-        <div class="footer-links">
-            <a href="contact.html">Contact</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="#">Social Links</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="footer-logo-img">
+                <p class="footer-tagline">Building the next generation of web developers</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="profiles.html">Profiles</a></li>
+                        <li><a href="apply.html">Apply</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web Dev Recruitment Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/apply.js"></script>
 </body>
 </html>
