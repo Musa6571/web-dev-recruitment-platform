@@ -1,8 +1,8 @@
 // Theme Toggle Functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Web Dev Recruitment Platform loaded");
-
-        // Course Category Filtering
+    
+            // Course Category Filtering - MOVED TO END AND FIXED
     const categoryTabs = document.querySelectorAll('.category-tab');
     const courseCards = document.querySelectorAll('.course-card');
     
@@ -17,14 +17,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const category = tab.getAttribute('data-category');
                 
-                // Show/hide courses based on category
+                // Show all courses first
                 courseCards.forEach(card => {
-                    if (category === 'beginner' || card.getAttribute('data-level') === category) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    card.style.display = 'flex';
                 });
+                
+                // If not "beginner", hide beginner courses
+                if (category !== 'beginner') {
+                    document.querySelectorAll('.course-card[data-level="beginner"]').forEach(card => {
+                        card.style.display = 'none';
+                    });
+                }
+                
+                // If not "intermediate", hide intermediate courses
+                if (category !== 'intermediate') {
+                    document.querySelectorAll('.course-card[data-level="intermediate"]').forEach(card => {
+                        card.style.display = 'none';
+                    });
+                }
+                
+                // If not "advanced", hide advanced courses
+                if (category !== 'advanced') {
+                    document.querySelectorAll('.course-card[data-level="advanced"]').forEach(card => {
+                        card.style.display = 'none';
+                    });
+                }
                 
                 // Scroll to appropriate section
                 if (category === 'beginner') {
@@ -37,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
     
     // Get elements
     const themeToggle = document.getElementById('theme-toggle');
