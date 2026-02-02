@@ -2,9 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Web Dev Recruitment Platform loaded");
     
-            // Course Category Filtering - MOVED TO END AND FIXED
+                // Course Category Tabs - SCROLL ONLY VERSION
     const categoryTabs = document.querySelectorAll('.category-tab');
-    const courseCards = document.querySelectorAll('.course-card');
     
     if (categoryTabs.length > 0) {
         categoryTabs.forEach(tab => {
@@ -17,44 +16,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const category = tab.getAttribute('data-category');
                 
-                // Show all courses first
-                courseCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-                
-                // If not "beginner", hide beginner courses
-                if (category !== 'beginner') {
-                    document.querySelectorAll('.course-card[data-level="beginner"]').forEach(card => {
-                        card.style.display = 'none';
-                    });
-                }
-                
-                // If not "intermediate", hide intermediate courses
-                if (category !== 'intermediate') {
-                    document.querySelectorAll('.course-card[data-level="intermediate"]').forEach(card => {
-                        card.style.display = 'none';
-                    });
-                }
-                
-                // If not "advanced", hide advanced courses
-                if (category !== 'advanced') {
-                    document.querySelectorAll('.course-card[data-level="advanced"]').forEach(card => {
-                        card.style.display = 'none';
-                    });
-                }
-                
-                // Scroll to appropriate section
+                // Scroll to appropriate section with smooth behavior
                 if (category === 'beginner') {
-                    document.getElementById('beginner-courses').scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('beginner-courses').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 } else if (category === 'intermediate') {
-                    document.getElementById('intermediate-courses').scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('intermediate-courses').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 } else if (category === 'advanced') {
-                    document.getElementById('advanced-courses').scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('advanced-courses').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
     }
-    
     
     // Get elements
     const themeToggle = document.getElementById('theme-toggle');
