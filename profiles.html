@@ -3,34 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Recruitment - [Page Name]</title>
+    <title>Web Dev Recruitment - Meet Our Team</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header>
         <nav>
-            <div class="logo">WebDevRecruit</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="profiles.html">Profiles</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <!-- Logo Image -->
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
+            </div>
+            
+            <!-- Navigation Menu - Centered -->
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="profiles.html" class="active">Profiles</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            
+            <!-- Theme Toggle Switch -->
+            <div class="theme-toggle-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="theme-slider"></span>
+                </label>
+                <span class="theme-label" id="theme-label">Light Mode</span>
+            </div>
         </nav>
     </header>
 
+    <!-- AI Helper Button -->
+    <div class="ai-helper">
+        <button class="ai-helper-btn" id="aiHelperBtn">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text">AI Assistant</span>
+        </button>
+        <div class="ai-helper-panel" id="aiHelperPanel">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+            <div class="ai-content">
+                <div class="ai-options">
+                    <button class="ai-option" data-question="How do I apply?">
+                        <span>📝</span>
+                        Application Process
+                    </button>
+                    <button class="ai-option" data-question="What courses are available?">
+                        <span>📚</span>
+                        Available Courses
+                    </button>
+                    <button class="ai-option" data-question="What skills are required?">
+                        <span>💼</span>
+                        Required Skills
+                    </button>
+                    <button class="ai-option" data-question="Contact information">
+                        <span>📞</span>
+                        Contact Details
+                    </button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="ai-input">
+                    <input type="text" placeholder="Ask me anything..." id="aiInput">
+                    <button id="aiSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <h1>[Page Title Here]</h1>
-        <!-- Add content from your PowerPoint here -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Meet Our Team</h1>
+                <p class="hero-subtitle">Passionate developers, designers, and leaders working together to build the future of web development.</p>
+                <div class="hero-actions">
+                    <a href="#team-profiles" class="cta-button primary">View Profiles</a>
+                    <a href="apply.html" class="cta-button secondary">Join Our Team</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Introduction -->
+        <section class="team-intro">
+            <div class="section-header">
+                <h2 class="section-title">Our Team Culture</h2>
+                <p class="section-subtitle">Collaboration, innovation, and continuous growth</p>
+            </div>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <p>We are a team of experienced developers, designers, and project leaders who work collaboratively to deliver modern web solutions. Our work includes website development, front-end and back-end programming, testing, and ongoing improvements.</p>
+                    <p class="highlight">Our team culture is built around collaboration, learning, and innovation. We encourage open communication, teamwork, and continuous skill development so that every team member feels supported and valued.</p>
+                </div>
+                <div class="intro-stats">
+                    <div class="intro-stat">
+                        <span class="intro-stat-number">50+</span>
+                        <span class="intro-stat-label">Team Members</span>
+                    </div>
+                    <div class="intro-stat">
+                        <span class="intro-stat-number">100+</span>
+                        <span class="intro-stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="intro-stat">
+                        <span class="intro-stat-number">5★</span>
+                        <span class="intro-stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Profiles -->
+        <section class="team-profiles" id="team-profiles">
+            <div class="section-header">
+                <h2 class="section-title">Team Members</h2>
+                <p class="section-subtitle">Meet some of our talented team members</p>
+            </div>
+            <div class="profiles-grid">
+                <!-- Profile 1 -->
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="images/profile1.jpg" alt="Alex - Trainee Web Developer">
+                    </div>
+                    <div class="profile-content">
+                        <h3 class="profile-name">Alex</h3>
+                        <p class="profile-role">Trainee Web Developer</p>
+                        <div class="profile-quote">
+                            <span class="quote-icon">"</span>
+                            <p class="quote-text">Working here has helped me build real-world skills and gain confidence in web development. The support from the team has been amazing.</p>
+                        </div>
+                        <div class="profile-skills">
+                            <h4>Skills & Expertise</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile 2 -->
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="images/profile2.jpg" alt="Sanjeep - Junior Front-End Developer">
+                    </div>
+                    <div class="profile-content">
+                        <h3 class="profile-name">Sanjeep</h3>
+                        <p class="profile-role">Junior Front-End Developer</p>
+                        <div class="profile-quote">
+                            <span class="quote-icon">"</span>
+                            <p class="quote-text">This company encouraged me to learn, improve, and work on real projects. I feel valued and motivated every day.</p>
+                        </div>
+                        <div class="profile-skills">
+                            <h4>Skills & Expertise</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Vue.js</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">UI/UX</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile 3 -->
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="images/profile3.jpg" alt="Sarah - Senior Web Developer">
+                    </div>
+                    <div class="profile-content">
+                        <h3 class="profile-name">Sarah</h3>
+                        <p class="profile-role">Senior Web Developer</p>
+                        <div class="profile-quote">
+                            <span class="quote-icon">"</span>
+                            <p class="quote-text">We focus on teamwork and growth. Helping new developers progress while delivering quality work is what makes this company special.</p>
+                        </div>
+                        <div class="profile-skills">
+                            <h4>Skills & Expertise</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">DevOps</span>
+                                <span class="skill-tag">Mentoring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Values -->
+        <section class="team-values">
+            <div class="section-header">
+                <h2 class="section-title">Our Values</h2>
+                <p class="section-subtitle">What drives us to deliver excellence</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in working together, sharing knowledge, and supporting each other to achieve common goals.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Innovation</h3>
+                    <p>We continuously explore new technologies and approaches to solve problems creatively.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📚</div>
+                    <h3>Learning</h3>
+                    <p>We invest in continuous learning and professional development for all team members.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌟</div>
+                    <h3>Quality</h3>
+                    <p>We take pride in delivering high-quality, accessible web solutions that exceed expectations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Goals -->
+        <section class="team-goals">
+            <div class="section-header">
+                <h2 class="section-title">Our Goals</h2>
+                <p class="section-subtitle">What we strive to achieve together</p>
+            </div>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <div class="goal-number">01</div>
+                    <h3>Deliver High-Quality Solutions</h3>
+                    <p>To create and maintain accessible, modern web solutions that meet client needs and industry standards.</p>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-number">02</div>
+                    <h3>Train Skilled Developers</h3>
+                    <p>To recruit and train passionate individuals, helping them become proficient web developers.</p>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-number">03</div>
+                    <h3>Foster Inclusive Environment</h3>
+                    <p>To create a positive, inclusive working environment where everyone feels valued and supported.</p>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-number">04</div>
+                    <h3>Support Professional Growth</h3>
+                    <p>To provide opportunities for continuous learning and career advancement through hands-on experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="final-cta">
+            <div class="cta-content">
+                <h2>Ready to Join Our Team?</h2>
+                <p>Become part of a collaborative team that values growth, innovation, and quality work.</p>
+                <a href="apply.html" class="cta-button large">Apply Now →</a> 
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Web Dev Recruitment Platform</p>
-        <div class="footer-links">
-            <a href="contact.html">Contact</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="#">Social Links</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="footer-logo-img">
+                <p class="footer-tagline">Building the next generation of web developers</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="profiles.html">Profiles</a></li>
+                        <li><a href="apply.html">Apply</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web Dev Recruitment Platform. All rights reserved.</p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
