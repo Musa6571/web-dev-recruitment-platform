@@ -1,6 +1,42 @@
 // Theme Toggle Functionality
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Web Dev Recruitment Platform loaded");
+
+        // Course Category Filtering
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    if (categoryTabs.length > 0) {
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                const category = tab.getAttribute('data-category');
+                
+                // Show/hide courses based on category
+                courseCards.forEach(card => {
+                    if (category === 'beginner' || card.getAttribute('data-level') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Scroll to appropriate section
+                if (category === 'beginner') {
+                    document.getElementById('beginner-courses').scrollIntoView({ behavior: 'smooth' });
+                } else if (category === 'intermediate') {
+                    document.getElementById('intermediate-courses').scrollIntoView({ behavior: 'smooth' });
+                } else if (category === 'advanced') {
+                    document.getElementById('advanced-courses').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    }
     
     // Get elements
     const themeToggle = document.getElementById('theme-toggle');
