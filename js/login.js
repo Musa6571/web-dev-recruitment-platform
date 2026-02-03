@@ -54,21 +54,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 
                 if (demoAccounts[email] && password === demoAccounts[email]) {
-                    showAlert('Login successful! Redirecting to dashboard...', 'success');
+                    showAlert('Login successful! Welcome back.', 'success');
                     
-                    // Store login state (demo)
+                    // Store login state (demo) but don't redirect
                     localStorage.setItem('isLoggedIn', 'true');
                     localStorage.setItem('userEmail', email);
+                    localStorage.setItem('userRole', getRoleFromEmail(email));
                     
-                    // Redirect after delay
-                    setTimeout(() => {
-                        window.location.href = 'dashboard.html'; // You'll need to create this page
-                    }, 1500);
+                    // Reset form
+                    loginForm.reset();
+                    
+                    // Update UI to show logged-in state
+                    updateUIForLoggedInUser(email);
+                    
                 } else {
                     showAlert('Invalid email or password. Please try again.', 'error');
-                    loginSubmit.innerHTML = '<span>Sign In</span><i class="fas fa-arrow-right"></i>';
-                    loginSubmit.disabled = false;
                 }
+                
+                // Reset button state
+                loginSubmit.innerHTML = '<span>Sign In</span><i class="fas fa-arrow-right"></i>';
+                loginSubmit.disabled = false;
+                
             }, 1500);
         });
     }
@@ -101,6 +107,131 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Check if already logged in and update UI
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        const userEmail = localStorage.getItem('userEmail');
+        updateUIForLoggedInUser(userEmail);
+    }
+    
+    // Helper function to get role from email
+    function getRoleFromEmail(email) {
+        if (email.includes('admin')) return 'Administrator';
+        if (email.includes('instructor')) return 'Instructor';
+        if (email.includes('student')) return 'Student';
+        return 'User';
+    }
+    
+    // Update UI for logged-in user
+    function updateUIForLoggedInUser(email) {
+        const role = getRoleFromEmail(email);
+        const welcomeMessage = `Welcome back, ${email.split('@')[0]}! (${role})`;
+        
+        // Update page title
+        document.title = `Web Dev Recruitment - Welcome ${email.split('@')[0]}`;
+        
+        // Update hero section
+        const heroTitle = document.querySelector('.hero-title');
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        
+        if (heroTitle) {
+            heroTitle.textContent = 'Welcome Back!';
+        }
+        
+        if (heroSubtitle) {
+            heroSubtitle.textContent = welcomeMessage;
+        }
+        
+        // Update login card to show logged-in state
+        const loginCard = document.querySelector('.login-card');
+        if (loginCard) {
+            const loginHeader = document.querySelector('.login-header');
+            if (loginHeader) {
+                loginHeader.innerHTML = `
+                    <h2 class="login-title">You're Logged In</h2>
+                    <p class="login-subtitle">${welcomeMessage}</p>
+                `;
+            }
+            
+            // Hide form and show logout option
+            const loginForm = document.getElementById('loginForm');
+            const socialLogin = document.querySelector('.social-login');
+            const divider = document.querySelector('.divider');
+            const demoNotice = document.querySelector('.demo-notice');
+            
+            if (loginForm) loginForm.style.display = 'none';
+            if (socialLogin) socialLogin.style.display = 'none';
+            if (divider) divider.style.display = 'none';
+            
+            // Create logout section
+            const logoutSection = document.createElement('div');
+            logoutSection.className = 'logout-section';
+            logoutSection.innerHTML = `
+                <div class="logout-content">
+                    <div class="logout-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Successfully Logged In</h3>
+                    <p>You are now logged in as <strong>${email}</strong></p>
+                    <p class="user-role">Role: <span>${role}</span></p>
+                    <button class="logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Log Out
+                    </button>
+                    <button class="continue-btn" id="continueBtn">
+                        <i class="fas fa-home"></i>
+                        Return to Home
+                    </button>
+                </div>
+            `;
+            
+            // Insert after login header
+            loginHeader.insertAdjacentElement('afterend', logoutSection);
+            
+            // Add logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', logout);
+            
+            // Add continue to home functionality
+            document.getElementById('continueBtn').addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+            
+            // Update signup link to show different message
+            const signupLinkDiv = document.querySelector('.signup-link');
+            if (signupLinkDiv) {
+                signupLinkDiv.innerHTML = `
+                    <p>Need to switch accounts? <a href="#" id="switchAccount">Switch Account</a></p>
+                `;
+                
+                document.getElementById('switchAccount').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    logout();
+                });
+            }
+            
+            // Hide demo notice
+            if (demoNotice) demoNotice.style.display = 'none';
+        }
+        
+        // Add CSS for logout section
+        addLogoutStyles();
+    }
+    
+    // Logout function
+    function logout() {
+        // Clear login state
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userRole');
+        
+        // Show logout message
+        showAlert('You have been logged out successfully.', 'info');
+        
+        // Reload page to reset UI
+        setTimeout(() => {
+            location.reload();
+        }, 1500);
+    }
+    
     // Alert function
     function showAlert(message, type) {
         // Remove existing alerts
@@ -119,7 +250,10 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         // Add to page
-        document.querySelector('.login-card').insertBefore(alert, document.querySelector('.login-form'));
+        const loginCard = document.querySelector('.login-card');
+        if (loginCard) {
+            loginCard.insertBefore(alert, loginCard.firstChild);
+        }
         
         // Auto remove after 5 seconds
         setTimeout(() => {
@@ -136,11 +270,118 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Check if already logged in
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-        showAlert('You are already logged in. Redirecting to dashboard...', 'info');
-        setTimeout(() => {
-            window.location.href = 'dashboard.html';
-        }, 2000);
+    // Add CSS for logout section
+    function addLogoutStyles() {
+        const styles = `
+        .logout-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .logout-content {
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 2px solid rgba(52, 152, 219, 0.1);
+        }
+        
+        .logout-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #2ecc71;
+            font-size: 2.5rem;
+        }
+        
+        .logout-content h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .logout-content p {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .user-role {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 1rem auto;
+            font-weight: 500;
+        }
+        
+        .user-role span {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .logout-btn, .continue-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            margin: 0.5rem;
+            border: none;
+            min-width: 180px;
+        }
+        
+        .logout-btn {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 2px solid rgba(231, 76, 60, 0.2);
+        }
+        
+        .logout-btn:hover {
+            background: #e74c3c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+        }
+        
+        .continue-btn {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--secondary-color);
+            border: 2px solid rgba(52, 152, 219, 0.2);
+        }
+        
+        .continue-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .logout-btn, .continue-btn {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
+        `;
+        
+        // Add styles if not already added
+        if (!document.querySelector('#logout-styles')) {
+            const styleElement = document.createElement('style');
+            styleElement.id = 'logout-styles';
+            styleElement.textContent = styles;
+            document.head.appendChild(styleElement);
+        }
     }
 });
