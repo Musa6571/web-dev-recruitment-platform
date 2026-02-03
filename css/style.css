@@ -2647,7 +2647,7 @@ footer {
     margin: 0;
 }
 
-/* Contact Form */
+/* Contact Form - FIXED VERSION */
 .contact-form .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2675,6 +2675,7 @@ footer {
 
 .input-with-icon {
     position: relative;
+    width: 100%;
 }
 
 .input-with-icon i {
@@ -2685,12 +2686,14 @@ footer {
     color: var(--text-color);
     opacity: 0.6;
     z-index: 1;
+    pointer-events: none; /* Prevent interaction */
 }
 
+/* Fix input padding to accommodate icons */
 .input-with-icon input,
 .input-with-icon select {
     width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 1rem 1rem 1rem 3.5rem; /* Increased left padding for icons */
     border: 2px solid var(--border-color);
     border-radius: 8px;
     background: var(--background-color);
@@ -2698,10 +2701,27 @@ footer {
     font-size: 1rem;
     transition: all 0.3s;
     position: relative;
+    appearance: none; /* Remove default dropdown styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Fix select dropdown arrow */
+.input-with-icon select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 12px;
+    padding-right: 2.5rem; /* Space for dropdown arrow */
+}
+
+.dark-theme .input-with-icon select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f5f5f5' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
 }
 
 .textarea-with-icon {
     position: relative;
+    width: 100%;
 }
 
 .textarea-with-icon i {
@@ -2711,11 +2731,12 @@ footer {
     color: var(--text-color);
     opacity: 0.6;
     z-index: 1;
+    pointer-events: none;
 }
 
 .textarea-with-icon textarea {
     width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 1rem 1rem 1rem 3.5rem; /* Increased left padding */
     border: 2px solid var(--border-color);
     border-radius: 8px;
     background: var(--background-color);
@@ -2725,6 +2746,7 @@ footer {
     resize: vertical;
     font-family: inherit;
     line-height: 1.5;
+    min-height: 150px; /* Minimum height */
 }
 
 .input-with-icon input:focus,
@@ -2733,6 +2755,22 @@ footer {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Make sure select options are visible */
+.input-with-icon select option {
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Fix for Firefox select */
+@-moz-document url-prefix() {
+    .input-with-icon select {
+        text-indent: 0.01px;
+        text-overflow: '';
+    }
 }
 
 /* Checkbox Group */
@@ -2830,10 +2868,10 @@ footer {
     margin: 0;
 }
 
-/* Contact Cards */
+/* Contact Cards - IMPROVED VERSION */
 .contact-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
@@ -2850,7 +2888,9 @@ footer {
     padding: 1.5rem;
     transition: all 0.3s;
     display: flex;
+    flex-direction: column;
     gap: 1.2rem;
+    min-height: 180px; /* Add minimum height */
 }
 
 .contact-card:hover {
@@ -2860,35 +2900,40 @@ footer {
 }
 
 .contact-icon {
-    width: 50px;
-    height: 50px;
+    width: 60px; /* Increased size */
+    height: 60px; /* Increased size */
     background: rgba(52, 152, 219, 0.1);
-    border-radius: 10px;
+    border-radius: 12px; /* Slightly more rounded */
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--secondary-color);
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Larger icon */
     flex-shrink: 0;
+    margin-bottom: 0.5rem;
 }
 
 .contact-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact-content h3 {
     color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.2rem; /* Slightly larger */
+    margin-bottom: 1rem; /* More spacing */
     font-weight: 600;
+    line-height: 1.3;
 }
 
 .contact-content p {
     color: var(--text-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* More spacing */
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6; /* Better line height */
     opacity: 0.9;
+    flex: 1; /* Make text take available space */
 }
 
 .contact-link {
@@ -2897,14 +2942,21 @@ footer {
     gap: 0.5rem;
     color: var(--secondary-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600; /* Bolder */
     font-size: 0.9rem;
-    transition: gap 0.3s;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 6px;
+    align-self: flex-start; /* Align to start */
+    margin-top: auto; /* Push to bottom */
 }
 
 .contact-link:hover {
     gap: 0.8rem;
-    text-decoration: underline;
+    background: rgba(52, 152, 219, 0.2);
+    text-decoration: none; /* Remove underline */
+    transform: translateX(5px);
 }
 
 .contact-note {
@@ -2913,7 +2965,9 @@ footer {
     font-size: 0.85rem;
     opacity: 0.7;
     font-style: italic;
-    margin-top: 0.5rem;
+    margin-top: 0.8rem; /* More spacing */
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--border-color);
 }
 
 /* Social Media Section */
