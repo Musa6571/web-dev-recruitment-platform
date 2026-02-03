@@ -1,6 +1,68 @@
 // Contact Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Contact page loaded");
+
+// Improve select dropdown visibility
+const contactSubject = document.getElementById('contact-subject');
+if (contactSubject) {
+    // Set first option as placeholder style
+    contactSubject.addEventListener('focus', function() {
+        if (this.value === "") {
+            this.style.color = 'var(--text-color)';
+            this.style.opacity = '1';
+        }
+    });
+    
+    contactSubject.addEventListener('change', function() {
+        if (this.value !== "") {
+            this.style.color = 'var(--text-color)';
+            this.style.opacity = '1';
+        } else {
+            this.style.color = 'var(--text-color)';
+            this.style.opacity = '0.6';
+        }
+    });
+    
+    // Initialize on load
+    if (contactSubject.value === "") {
+        contactSubject.style.color = 'var(--text-color)';
+        contactSubject.style.opacity = '0.6';
+    }
+}
+
+// Add custom dropdown arrow if needed
+function enhanceSelectDropdowns() {
+    const selects = document.querySelectorAll('select');
+    selects.forEach(select => {
+        // Create wrapper for custom styling
+        const wrapper = document.createElement('div');
+        wrapper.className = 'select-wrapper';
+        wrapper.style.position = 'relative';
+        
+        // Wrap the select
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+        
+        // Add custom arrow
+        const arrow = document.createElement('div');
+        arrow.className = 'select-arrow';
+        arrow.innerHTML = '<i class="fas fa-chevron-down"></i>';
+        arrow.style.cssText = `
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 2;
+        `;
+        wrapper.appendChild(arrow);
+    });
+}
+
+// Call the function
+enhanceSelectDropdowns();
     
     // Initialize contact form
     const contactForm = document.getElementById('contactForm');
