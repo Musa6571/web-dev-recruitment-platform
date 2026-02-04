@@ -108,7 +108,7 @@ nav {
     color: white;
     letter-spacing: 0.5px;
     position: relative;
-    margin-left: -8px; /* Overlap slightly with the R */
+    margin-left: -3px; /* Overlap slightly with the R */
 }
 
 /* Optional gradient effect on text */
