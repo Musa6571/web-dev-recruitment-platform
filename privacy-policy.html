@@ -3,37 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Dev Recruitment - [Page Name]</title>
+    <title>Web Dev Recruitment - Privacy Policy</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Header/Navigation -->
     <header>
         <nav>
-            <div class="logo">WebDevRecruit</div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="profiles.html">Profiles</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <!-- Logo Image -->
+            <div class="logo-container">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="logo" id="site-logo">
+            </div>
+            
+            <!-- Navigation Menu - Centered -->
+            <div class="nav-center">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="profiles.html">Profiles</a></li>
+                    <li><a href="apply.html">Apply</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy-policy.html" class="active">Privacy</a></li>
+                </ul>
+            </div>
+            
+            <!-- Theme Toggle Switch -->
+            <div class="theme-toggle-container">
+                <label class="theme-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="theme-slider"></span>
+                </label>
+                <span class="theme-label" id="theme-label">Light Mode</span>
+            </div>
         </nav>
     </header>
 
+    <!-- AI Helper Button -->
+    <div class="ai-helper">
+        <button class="ai-helper-btn" id="aiHelperBtn">
+            <span class="ai-icon">🤖</span>
+            <span class="ai-text">AI Assistant</span>
+        </button>
+        <div class="ai-helper-panel" id="aiHelperPanel">
+            <div class="ai-header">
+                <h3>AI Assistant</h3>
+                <p>How can I help you today?</p>
+            </div>
+            <div class="ai-content">
+                <div class="ai-options">
+                    <button class="ai-option" data-question="How do I apply?">
+                        <span>📝</span>
+                        Application Process
+                    </button>
+                    <button class="ai-option" data-question="What courses are available?">
+                        <span>📚</span>
+                        Available Courses
+                    </button>
+                    <button class="ai-option" data-question="What is your privacy policy?">
+                        <span>🔒</span>
+                        Privacy Policy
+                    </button>
+                    <button class="ai-option" data-question="Contact information">
+                        <span>📞</span>
+                        Contact Details
+                    </button>
+                </div>
+                <div class="ai-chat" id="aiChat">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="ai-input">
+                    <input type="text" placeholder="Ask me anything..." id="aiInput">
+                    <button id="aiSend">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <main>
-        <h1>[Page Title Here]</h1>
-        <!-- Add content from your PowerPoint here -->
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Privacy Policy</h1>
+                <p class="hero-subtitle">Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+                <div class="hero-actions">
+                    <a href="#policy-content" class="cta-button primary">Read Policy</a>
+                    <a href="contact.html" class="cta-button secondary">Contact Privacy Team</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Policy Content Section -->
+        <section class="policy-container" id="policy-content">
+            <div class="policy-wrapper">
+                <!-- Policy Header -->
+                <div class="policy-header">
+                    <div class="last-updated">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Last Updated: [Date]</span>
+                    </div>
+                    <div class="policy-version">
+                        <i class="fas fa-file-contract"></i>
+                        <span>Version: 2.1</span>
+                    </div>
+                </div>
+
+                <!-- Introduction -->
+                <div class="policy-section">
+                    <h2 class="section-title">Introduction</h2>
+                    <p><strong>Recruitment Solutions ("we", "our", "us")</strong> is committed to protecting the privacy and security of all users ("you", "your") who interact with our recruitment platform. This Privacy Policy outlines how we collect, use, and protect your information when you visit our website and apply for a role.</p>
+                    <p>By using our website, you consent to the data practices described in this policy.</p>
+                </div>
+
+                <!-- Information We Collect -->
+                <div class="policy-section">
+                    <h2 class="section-title">1. Information We Collect</h2>
+                    <p>When you use our site, we may collect the following personal information:</p>
+                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Personal Details</h3>
+                            <ul>
+                                <li>Full name</li>
+                                <li>Email address</li>
+                                <li>Phone number</li>
+                                <li>Birth date</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Application Data</h3>
+                            <ul>
+                                <li>CV or resume uploads</li>
+                                <li>Cover letters</li>
+                                <li>Application content</li>
+                                <li>Personal statements</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3>Technical Data</h3>
+                            <ul>
+                                <li>IP address</li>
+                                <li>Browser type</li>
+                                <li>Device information</li>
+                                <li>Usage data (for security purposes)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Skills & Preferences</h3>
+                            <ul>
+                                <li>Programming languages</li>
+                                <li>Platforms & OS</li>
+                                <li>Salary expectations</li>
+                                <li>Location preferences</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Note:</strong> We collect this data only when you voluntarily submit it through our application forms or contact methods.</p>
+                    </div>
+                </div>
+
+                <!-- How We Use Your Information -->
+                <div class="policy-section">
+                    <h2 class="section-title">2. How We Use Your Information</h2>
+                    <p>We use the information we collect for the following purposes:</p>
+                    
+                    <div class="usage-grid">
+                        <div class="usage-item">
+                            <div class="usage-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="usage-content">
+                                <h3>Recruitment Processing</h3>
+                                <p>To process your application, assess your qualifications, and communicate with you about opportunities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-item">
+                            <div class="usage-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="usage-content">
+                                <h3>Communication</h3>
+                                <p>To send you updates about your application, respond to inquiries, and provide important notices.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-item">
+                            <div class="usage-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="usage-content">
+                                <h3>Improvement & Analytics</h3>
+                                <p>To analyze website usage, improve our services, and develop new features.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-item">
+                            <div class="usage-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="usage-content">
+                                <h3>Security & Compliance</h3>
+                                <p>To protect our website, prevent fraud, and comply with legal obligations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Sharing & Disclosure -->
+                <div class="policy-section">
+                    <h2 class="section-title">3. Data Sharing & Disclosure</h2>
+                    <p>We do not sell your personal data. We may share your information with:</p>
+                    
+                    <ul class="policy-list">
+                        <li><strong>Our Team:</strong> Authorized employees involved in the recruitment process</li>
+                        <li><strong>Service Providers:</strong> Trusted third parties who assist in website operations (hosting, analytics, etc.)</li>
+                        <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+                        <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+                    </ul>
+                </div>
+
+                <!-- Your Rights -->
+                <div class="policy-section">
+                    <h2 class="section-title">4. Your Rights</h2>
+                    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+                    
+                    <div class="rights-grid">
+                        <div class="right-card">
+                            <h3><i class="fas fa-eye"></i> Right to Access</h3>
+                            <p>Request a copy of the personal data we hold about you.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h3><i class="fas fa-edit"></i> Right to Rectification</h3>
+                            <p>Correct inaccurate or incomplete personal data.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h3><i class="fas fa-trash-alt"></i> Right to Deletion</h3>
+                            <p>Request deletion of your personal data under certain circumstances.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h3><i class="fas fa-ban"></i> Right to Object</h3>
+                            <p>Object to processing of your personal data.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h3><i class="fas fa-download"></i> Data Portability</h3>
+                            <p>Receive your data in a structured, commonly used format.</p>
+                        </div>
+                        
+                        <div class="right-card">
+                            <h3><i class="fas fa-hand-paper"></i> Withdraw Consent</h3>
+                            <p>Withdraw your consent at any time where we rely on consent.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Security -->
+                <div class="policy-section">
+                    <h2 class="section-title">5. Data Security</h2>
+                    <p>We implement appropriate technical and organizational measures to protect your personal data:</p>
+                    
+                    <div class="security-features">
+                        <div class="security-item">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h3>Encryption</h3>
+                                <p>Data transmitted is encrypted using SSL/TLS technology</p>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h3>Access Controls</h3>
+                                <p>Strict access controls limit who can view your data</p>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <i class="fas fa-history"></i>
+                            <div>
+                                <h3>Regular Audits</h3>
+                                <p>Regular security assessments and updates</p>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <i class="fas fa-users-cog"></i>
+                            <div>
+                                <h3>Employee Training</h3>
+                                <p>Staff trained in data protection best practices</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="policy-section contact-section">
+                    <h2 class="section-title">6. Contact Us</h2>
+                    <p>If you have questions about this Privacy Policy or your personal data, please contact our Data Protection Officer:</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>privacy@recruitmentsolutions.co.uk</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+44 20 7123 4567 (Privacy Line)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>1450 Front Street, London, Essex, United Kingdom</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Response Time</h3>
+                                <p>We aim to respond to privacy inquiries within 7 business days</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policy Updates -->
+                <div class="policy-section update-section">
+                    <h2 class="section-title">7. Policy Updates</h2>
+                    <p>We may update this Privacy Policy periodically. We will notify you of significant changes by:</p>
+                    
+                    <div class="update-methods">
+                        <div class="method">
+                            <i class="fas fa-bell"></i>
+                            <h4>Email Notification</h4>
+                            <p>Direct email to registered users</p>
+                        </div>
+                        
+                        <div class="method">
+                            <i class="fas fa-globe"></i>
+                            <h4>Website Notice</h4>
+                            <p>Prominent notice on our website</p>
+                        </div>
+                        
+                        <div class="method">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Updated Date</h4>
+                            <p>Revised "Last Updated" date at the top of this page</p>
+                        </div>
+                    </div>
+                    
+                    <div class="policy-footer">
+                        <p><strong>Effective Date:</strong> [Date]</p>
+                        <p><strong>Last Updated:</strong> [Date]</p>
+                        <p class="policy-note">It is your responsibility to review this Privacy Policy periodically for changes.</p>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="policy-actions">
+                    <a href="apply.html" class="action-button">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Continue Application</span>
+                    </a>
+                    <a href="contact.html" class="action-button secondary">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Ask Questions</span>
+                    </a>
+                    <button class="action-button" id="printPolicy">
+                        <i class="fas fa-print"></i>
+                        <span>Print Policy</span>
+                    </button>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Web Dev Recruitment Platform</p>
-        <div class="footer-links">
-            <a href="contact.html">Contact</a> | 
-            <a href="privacy-policy.html">Privacy Policy</a> | 
-            <a href="#">Social Links</a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.jpg" alt="WebDevRecruit Logo" class="footer-logo-img">
+                <p class="footer-tagline">Protecting your privacy is our priority</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html" class="active">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Data Processing Agreement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="contact.html">Contact Privacy Team</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Data Request Form</a></li>
+                        <li><a href="#">Compliance Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web Dev Recruitment Platform. All rights reserved. | <strong>GDPR Compliant</strong></p>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript Files -->
     <script src="js/script.js"></script>
+    <script>
+        // Privacy Policy specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Print functionality
+            const printBtn = document.getElementById('printPolicy');
+            if (printBtn) {
+                printBtn.addEventListener('click', function() {
+                    window.print();
+                });
+            }
+            
+            // Add today's date to the policy
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            
+            // Update date placeholders
+            const dateElements = document.querySelectorAll('[contenteditable="true"]');
+            dateElements.forEach(el => {
+                el.textContent = formattedDate;
+            });
+            
+            // Update last updated text
+            const lastUpdated = document.querySelector('.last-updated span');
+            if (lastUpdated) {
+                lastUpdated.textContent = `Last Updated: ${formattedDate}`;
+            }
+        });
+    </script>
 </body>
 </html>
